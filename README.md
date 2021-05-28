@@ -1,4 +1,6 @@
-Create storage account
+Create storage account for terraform state
+
+Configure storage account in terraform script `terraform /provider.tf`
     
     az login
 
