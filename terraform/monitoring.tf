@@ -1,3 +1,5 @@
+# a log analytics workspace that will be integrated with the aks cluster
+
 resource "azurerm_log_analytics_workspace" "learnaks" {
   name                = "learnaksLogWs"
   location            = azurerm_resource_group.learn_aks.location

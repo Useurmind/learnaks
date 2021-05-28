@@ -1,12 +1,20 @@
+# this script defines the network layout
+# it deploys one vnet that we use for everything
+# the following subnets are defined
+# - sub_app_gw: the subnet for the application gateway of the aks cluster
+# - sub_aks: the subnet for the aks cluster, DO NOT configure security groups on this vnet, security is defined by aks
+
 variable vnet_cidr {
   default = "10.0.0.0/8"
 }
 
 variable subnet_gateway_cidr {
+  description = "CIDR range for the application gateway subnet. Can be small."
   default = "10.0.1.0/24"
 }
 
 variable subnet_aks_cidr {
+  description = "CIDR range for the aks cluster subnet. Should be big enough to accomodate all pods with separate ips."
   default = "10.1.0.0/16"
 }
 

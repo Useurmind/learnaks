@@ -1,3 +1,11 @@
+# this script configures the required aad groups and role assignments for the interaction with aks
+#
+# - admin: the aks admin that can administrate everything in the cluster
+# - developer: the aks developer that can also do everything in the cluster but has permissions via a separate ClusterRole
+# - viewer: the aks viewer that can only view everything in the cluster
+#
+# the actual permissions are not in here but in the helm chart folder aks_permissions
+
 variable aad_group_prefix {
   description = "A prefix for all created AAD groups. Group names should be compatible with the DNS naming rules of kubernetes. Letters, numbers, dashes, dots."
   default = "aks-"
