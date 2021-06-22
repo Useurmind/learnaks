@@ -1,4 +1,3 @@
-
 variable aks_docker_bridge_cidr {
   default =  "172.17.0.1/16"
 }
@@ -11,11 +10,15 @@ variable aks_service_cidr {
   default =  "172.16.0.0/16"
 }
 
+locals {
+    aks_dns_prefix = var.cluster_name
+}
+
 resource "azurerm_kubernetes_cluster" "k8s" {
-  name                = "k8s"
+  name                = "${var.cluster_name}aks"
   location            = azurerm_resource_group.learn_aks.location
   resource_group_name = azurerm_resource_group.learn_aks.name
-  dns_prefix          = "joglearnaks"
+  dns_prefix          = local.aks_dns_prefix
 
   default_node_pool {
     name       = "default"

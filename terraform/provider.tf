@@ -1,10 +1,7 @@
 terraform {
   # this is the azure storage account where we save the terraform state
   backend "azurerm" {
-    resource_group_name  = "terraform_state_storage"
-    storage_account_name = "jogterraform"
-    container_name       = "tflearnaks"
-    key                  = "prod.terraform.tfstate"
+    key = "prod.terraform.tfstate"
   }
 
 
