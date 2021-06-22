@@ -1,10 +1,10 @@
 Create storage account for terraform state
 
-Configure storage account in terraform script `terraform /provider.tf`
+Configure variables in `terraform/var.auto.tfvars` and `terraform/var.backend.tfvars`
     
     az login
 
-    terraform init
+    tf-init.ps1
     terraform apply
 
 
