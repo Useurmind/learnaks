@@ -1,6 +1,1 @@
-param(
-    [string]$storageAccountName,
-    [string]$resourceGroupName
-)
-
-terraform init 
+terraform init -backend-config .\var.backend.tfvars
