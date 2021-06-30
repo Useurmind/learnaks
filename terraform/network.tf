@@ -5,23 +5,23 @@
 # - aks: the subnet for the aks cluster, DO NOT configure security groups on this vnet, security is defined by aks
 # - data: the subnet for data storage
 
-variable vnet_cidr {
+variable "vnet_cidr" {
   default = "10.0.0.0/8"
 }
 
-variable subnet_gateway_cidr {
+variable "subnet_gateway_cidr" {
   description = "CIDR range for the application gateway subnet. Can be small."
-  default = "10.0.1.0/24"
+  default     = "10.0.1.0/24"
 }
 
-variable subnet_aks_cidr {
+variable "subnet_aks_cidr" {
   description = "CIDR range for the aks cluster subnet. Should be big enough to accomodate all pods with separate ips."
-  default = "10.1.0.0/16"
+  default     = "10.1.0.0/16"
 }
 
-variable subnet_data_cidr {
+variable "subnet_data_cidr" {
   description = "CIDR range for the data subnet. Should be big enough to accomodate all storage endpoints and hosted services."
-  default = "10.2.0.0/16"
+  default     = "10.2.0.0/16"
 }
 
 resource "azurerm_virtual_network" "learn_aks_net" {
